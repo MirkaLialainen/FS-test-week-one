@@ -45,7 +45,22 @@ const x = [[[1, 0, -3], [2, 4], [3]], [[4, 4, 3], [5, -3, -1], [6, 10]], [[7, -5
 console.log(addGridItems(x)); // 50
 ------------------*/
 
-function addGridItems(grid) {}
+function addGridItems(grid) {
+ let sum = 0;  // create a variable for sum to be stored 
+        for (let i = 0; i < grid.length; i++){
+            for (let ii = 0; ii < grid[i].length; ii++) {
+                for (let iii = 0; iii < grid[i][ii].length; iii++) { // looping through the nested arrays in side the grid
+                    sum += grid[i][ii][iii]++; 
+                }
+                return sum  // adding each item of the arrays and storing these to varible sum but not getting the result (I get 1 and -2) 
+            }
+        }
+    }
+    const y = [[[1], [2]]];
+    console.log(addGridItems(y)); // 3
+    
+    const x = [[[1, 0, -3], [2, 4], [3]], [[4, 4, 3], [5, -3, -1], [6, 10]], [[7, -5, -5], [8, 0], [9, 1]]];
+    console.log(addGridItems(x)); // 50
 
 /*------------------
 3)
@@ -68,8 +83,14 @@ console.log(createFileName("Sofia Profile Photo", "image")); // "sofia_profile_p
 console.log(createFileName("Data from Pokemon API", "JSON")); // "data_from_pokemon_api.json"
 ------------------*/
 
-function createFileName() {}
-
+function createFileName(str, ext) {
+let filename = (str).toLowerCase().replace(/\s/g, "_"); // store the string element on varibale to enable converting to lowercase and replacing the spaces with underscore = \s metacharacter is used to find a "whitespace" character.
+let filetype = (ext).toLowerCase(); //only need to convert to lowercase
+return filename + "." +filetype; // add full stop before the ext parameter
+}
+console.log(createFileName("Sofia Engineering Resume", "PDF")); // "sofia_engineering_resume.pdf"
+console.log(createFileName("Sofia Profile Photo", "image")); // "sofia_profile_photo.png"
+console.log(createFileName("Data from Pokemon API", "JSON")); // "data_from_pokemon_api.json"
 /*------------------
 4) Print the following pattern
 99 96 93 90 88
@@ -81,3 +102,11 @@ function createFileName() {}
 Hints:
 - Use a loop within a loop.
 ------------------*/
+let num = "";
+
+for (let x = 0; x <= 5; x++) { //I thought I would loop from 5 to 1 to get the "triangle" to display as pictured but this did not made any difference and I reverted back to 0 to 5 loop. 
+    for (let y = 0; y <= 5; y++){
+        num = num + 99 - 3; //substracting 3 from number (99) each time seems to be the pattern on displayed picture but I do not know how to display the numbers 
+  console.log(num);
+}
+}
