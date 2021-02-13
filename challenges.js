@@ -17,8 +17,20 @@ console.log(isPalindrome(84146)); // false
 console.log(isPalindrome(12)); // false
 ------------------*/
 
-function isPalindrome(num) {}
+function isPalindrome(num) {
+    let number = (num.toString()) // convert number to a string to enable the split method to work 
+    if (number === number.split('').reverse().join('')) // split method divides the string to a list of substrings and searches for pattern, reverse method reverses the string (palindorme check), join method creates and returns the new string (number in reversed order)
+    return true;
+    else { 
+        return false;  // else statement was needed as without, all "False" numbers would return "undefined" 
+    }
+}
 
+console.log(isPalindrome(12321)); // true
+console.log(isPalindrome(-12321)); // false
+console.log(isPalindrome(1)); // true
+console.log(isPalindrome(84146)); // false
+console.log(isPalindrome(12)); // false
 /*------------------
 2)
 Create a function that takes a grid
